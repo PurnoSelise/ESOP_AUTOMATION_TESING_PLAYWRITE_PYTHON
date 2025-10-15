@@ -1,6 +1,0 @@
-base_url: "https://stgw.vorwerk-schweiz.ch/"
-browser:
-  headless: false
-timeouts:
-  default: 8000
-  navigation: 15000

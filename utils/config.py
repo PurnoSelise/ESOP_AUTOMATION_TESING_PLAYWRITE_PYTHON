@@ -1,14 +1,8 @@
-import yaml, os
-from dotenv import load_dotenv
+CONFIG = {
+    "base_url": "https://stgw.vorwerk-schweiz.ch/",
+    "username": "selisetesttl@gmail.com",
+    "password": "1qazZAQ!TL",
+    "browser": "chromium",
+    "esop_pass":"@fGa<2Qz73!:"
 
-def load_config():
-    with open("config.yaml", "r") as f:
-        return yaml.safe_load(f)
-
-def get_credentials():
-    load_dotenv()
-    return {
-        "username": os.getenv("LOGIN_USER"),
-        "password": os.getenv("LOGIN_PASS"),
-        "webpass": os.getenv("WEBSHOP_PASS")
-    }
+}
