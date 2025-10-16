@@ -7,6 +7,13 @@ import pytest
 class BaseTest:
     @pytest.fixture(scope="class", autouse=True)
     def setup_class(self, request):
+
+        if not hasattr(request.config, "_test_results_cleared"):
+            with open("test_results.txt", "w") as f:
+                f.write("")
+            print("\n🧹 Cleared old test results.\n")
+            request.config._test_results_cleared = True
+
         playwright = sync_playwright().start()
         browser_type = CONFIG["browser"].lower()
 
@@ -15,7 +22,6 @@ class BaseTest:
             "headless": False
         }
 
-        # Apply maximize behavior depending on browser type
         if browser_type in ["chromium", "chrome"]:
             launch_args["args"] = ["--start-maximized"]
             browser = getattr(playwright, browser_type).launch(**launch_args)

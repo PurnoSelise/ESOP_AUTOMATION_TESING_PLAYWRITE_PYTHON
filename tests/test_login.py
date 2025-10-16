@@ -7,7 +7,7 @@ class TestLogin(BaseTest):
     def test_login_success(self):
         today = date.today()
         a="login is working fine >>"
-        print(a+today)
+        print(a+str(today))
 
-        with open("test_results.txt", "w") as f:
-            f.write(a)
+        with open("test_results.txt", "a") as f:
+            f.write(f"{a}{today}\n")

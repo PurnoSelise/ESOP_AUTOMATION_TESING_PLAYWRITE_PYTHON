@@ -8,8 +8,8 @@ class TestCheckoutCOD(BaseTest):
         checkout = checkout_COD(self.page)  # page already logged in from BaseTest
         checkout.checkout()
         today = date.today()
-        a="CheckoutCOD is working fine >>"
-        print(a + str(today))
+        b="Check out COD is working fine >>"
+        print(b + str(today))
 
-        with open("test_results.txt", "w") as f:
-            f.write(a)
+        with open("test_results.txt", "a") as f:
+            f.write(f"{b}{today}\n")
